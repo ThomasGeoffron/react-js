@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build: site
+    container_name: react-app-js
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/var/www/html
+      - ./server/apache2.conf:/etc/apache2/apache2.conf
