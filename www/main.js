@@ -185,10 +185,6 @@ const generateStructure = (structure) => {
 root.dispatchEvent(new Event("rerender"));
 //root.appendChild(generateStructure(struct));
 
-const MiniReact = {
-    Component: class Component {},
-};
-
 class Hello extends MiniReact.Component {
     static propTypes = {
         properties: {
