@@ -41,7 +41,7 @@ export class Cities extends MiniReact.Component {
           MiniReact.createElement(
             "li",
             {
-              onClick: () => (this.currentCity = city.code),
+              onClick: () => this.props.fetchWeatherData(city.code),
             },
             [`${city.name}, ${city.department}`]
           )
