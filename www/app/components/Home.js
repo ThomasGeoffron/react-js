@@ -1,7 +1,8 @@
-import { MiniReact } from "../MiniReact";
+import { MiniReact } from "../MiniReact.js";
+import { Cities } from "./Cities.js";
 
 export class Home extends MiniReact.Component {
-  constructor() {
+  constructor(props) {
     super(props);
   }
 

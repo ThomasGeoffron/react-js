@@ -1,8 +1,8 @@
-import { MiniReact } from "../MiniReact";
+import { MiniReact } from "../MiniReact.js";
 
 export class Cities extends MiniReact.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state.cities = [
       {
         name: "Paris",
@@ -41,7 +41,7 @@ export class Cities extends MiniReact.Component {
           MiniReact.createElement(
             "li",
             {
-              onClick: () => this.props.fetchWeatherData(city.code),
+              click: () => this.props.fetchWeatherData(city.code),
             },
             [`${city.name}, ${city.department}`]
           )
