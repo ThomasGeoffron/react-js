@@ -3,6 +3,7 @@ import { MiniReact } from "../MiniReact.js";
 export class Cities extends MiniReact.Component {
   constructor(props) {
     super(props);
+    this.state.fetchWeatherData = props.fetchWeatherData;
     this.state.cities = [
       {
         name: "Paris",
@@ -41,7 +42,13 @@ export class Cities extends MiniReact.Component {
           MiniReact.createElement(
             "li",
             {
-              click: () => this.props.fetchWeatherData(city.code),
+              click: () => {
+                this.state.fetchWeatherData(
+                  `${city.name}, ${city.department}`,
+                  city.code
+                );
+              },
+              style: "cursor: pointer; margin: 10px 0px 10px 0px;",
             },
             [`${city.name}, ${city.department}`]
           )

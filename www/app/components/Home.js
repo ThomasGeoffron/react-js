@@ -6,23 +6,25 @@ export class Home extends MiniReact.Component {
     super(props);
   }
 
-  fetchWeatherData(cityCode) {
+  fetchWeatherData(cityName, cityCode) {
     const url = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityCode}?apikey=N6fHuseOGp9r0eDoXUDeyg6EeWFXAp3S&language=fr-fr&details=true&metric=true`;
     fetch(url)
       .then((response) => {
-        const json = response.json();
-        console.log(json);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
         alert(
-          `${json.Headline.Text}\nTempérature min: ${
-            json.DailyForecasts[0].Temperature.Minimum.Value
+          `${cityName}\n\n${data.Headline.Text}\nTempérature min: ${
+            data.DailyForecasts[0].Temperature.Minimum.Value
           }°C\nTempérature max: ${
-            json.DailyForecasts[0].Temperature.Maximum.Value
-          }°C\nJournée: ${json.DailyForecasts[0].Day.IconPhrase} (${
-            json.DailyForecasts[0].Day.HasPrecipitation
+            data.DailyForecasts[0].Temperature.Maximum.Value
+          }°C\nJournée: ${data.DailyForecasts[0].Day.IconPhrase} (${
+            data.DailyForecasts[0].Day.HasPrecipitation
               ? "précipitation"
               : "sans précipitation"
-          })\nNuit: ${json.DailyForecasts[0].Night.IconPhrase} (${
-            json.DailyForecasts[0].Night.HasPrecipitation
+          })\nNuit: ${data.DailyForecasts[0].Night.IconPhrase} (${
+            data.DailyForecasts[0].Night.HasPrecipitation
               ? "précipitation"
               : "sans précipitation"
           })`
