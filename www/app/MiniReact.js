@@ -1,4 +1,4 @@
-const events = ["click", "hover", "focus", "change", "keyup"];
+const events = ["click", "hover", "focus", "change", "keyup", "input"];
 
 export const MiniReact = {
   Component: class Component {
