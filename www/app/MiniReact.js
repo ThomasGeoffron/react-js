@@ -26,7 +26,7 @@ export const MiniReact = {
         this.oldProps = newProps;
         this.oldRender = this.render();
       }
-      return this.oldRender;
+      return this.render();
     }
   },
   createElement: function (element, props, children) {
@@ -45,7 +45,6 @@ export const MiniReact = {
       }
       if (children) {
         for (let child of children) {
-          //console.log(typeof child)
           if (child === undefined) continue;
           if (typeof child === "string") {
             node.appendChild(document.createTextNode(child));
