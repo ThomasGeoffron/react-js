@@ -3,10 +3,18 @@ const events = ["click", "hover", "focus", "change", "keyup", "input"];
 export const MiniReact = {
   Component: class Component {
     oldProps = null;
+    oldRender = null;
     state = {};
 
     constructor(initProps) {
       this.oldProps = initProps;
+    }
+
+    setState(newState) {
+      this.state = {...this.state, ...newState};
+      let newRender = this.render();
+      this.oldRender.parentNode.replaceChild(newRender, this.oldRender);
+      this.oldRender = newRender;
     }
 
     shouldUpdate(newProps) {
@@ -16,8 +24,9 @@ export const MiniReact = {
     display(newProps = null) {
       if (this.shouldUpdate(newProps)) {
         this.oldProps = newProps;
+        this.oldRender = this.render();
       }
-      return this.render();
+      return this.oldRender;
     }
   },
   createElement: function (element, props, children) {
