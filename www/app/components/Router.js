@@ -16,12 +16,13 @@ export class Router extends MiniReact.Component {
   render() {
     return MiniReact.createElement("div", null, [
       MiniReact.createElement("header", null, [
-        MiniReact.createElement("ul", [
+        MiniReact.createElement("ul", null, [
           MiniReact.createElement(
             "li",
             {
+              style: "cursor: pointer; color: blue;",
               click: () => {
-                this.setPath("/");
+                MiniReact.setPath("/");
               },
             },
             ["Accueil"]
@@ -29,8 +30,9 @@ export class Router extends MiniReact.Component {
           MiniReact.createElement(
             "li",
             {
+              style: "cursor: pointer; color: blue;",
               click: () => {
-                this.setPath("/meteo");
+                MiniReact.setPath("/meteo");
               },
             },
             ["Météo"]
@@ -38,8 +40,9 @@ export class Router extends MiniReact.Component {
           MiniReact.createElement(
             "li",
             {
+              style: "cursor: pointer; color: blue;",
               click: () => {
-                this.setPath("/commentaire");
+                MiniReact.setPath("/commentaire");
               },
             },
             ["Commentaire"]

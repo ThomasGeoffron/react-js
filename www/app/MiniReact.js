@@ -11,10 +11,10 @@ export const MiniReact = {
     }
 
     setState(newState) {
-      this.state = {...this.state, ...newState};
+      this.state = { ...this.state, ...newState };
       let newRender = this.render();
-      this.oldRender.parentNode.replaceChild(newRender, this.oldRender);
-      this.oldRender = newRender;
+      console.log(JSON.stringify(this.oldRender));
+      location.reload();
     }
 
     shouldUpdate(newProps) {
@@ -28,6 +28,9 @@ export const MiniReact = {
       }
       return this.render();
     }
+  },
+  setPath(path) {
+    location.hash = "#" + path;
   },
   createElement: function (element, props, children) {
     if (typeof element === "string") {

@@ -6,9 +6,9 @@ export class Route extends MiniReact.Component {
   }
 
   render() {
-    return this.createElement("div", null, [
-      this.props.currentUri === this.props.uri
-        ? this.createElement(this.props.component)
+    return MiniReact.createElement("div", null, [
+      this.oldProps.currentUri === this.oldProps.uri
+        ? MiniReact.createElement(this.oldProps.component, null, [])
         : "",
     ]);
   }
