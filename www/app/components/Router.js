@@ -3,7 +3,7 @@ import { Home } from "./Home.js";
 import { Comment } from "./Comment.js";
 import { Route } from "./Route.js";
 
-export class Index extends React.Component {
+export class Router extends React.Component {
   constructor(props) {
     super(props);
     this.state = { currentUri: location.hash.split("#")[1] };
