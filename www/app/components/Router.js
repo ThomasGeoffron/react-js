@@ -1,9 +1,9 @@
-import { React } from "../React/React.js";
+import { MiniReact } from "../MiniReact.js";
 import { Home } from "./Home.js";
 import { Comment } from "./Comment.js";
 import { Route } from "./Route.js";
 
-export class Router extends React.Component {
+export class Router extends MiniReact.Component {
   constructor(props) {
     super(props);
     this.state = { currentUri: location.hash.split("#")[1] };
@@ -14,10 +14,19 @@ export class Router extends React.Component {
   }
 
   render() {
-    return this.createElement("div", null, [
-      this.createElement("header", null, [
-        this.createElement("ul", [
-          this.createElement(
+    return MiniReact.createElement("div", null, [
+      MiniReact.createElement("header", null, [
+        MiniReact.createElement("ul", [
+          MiniReact.createElement(
+            "li",
+            {
+              click: () => {
+                this.setPath("/");
+              },
+            },
+            ["Accueil"]
+          ),
+          MiniReact.createElement(
             "li",
             {
               click: () => {
@@ -26,7 +35,7 @@ export class Router extends React.Component {
             },
             ["Météo"]
           ),
-          this.createElement(
+          MiniReact.createElement(
             "li",
             {
               click: () => {
@@ -37,12 +46,17 @@ export class Router extends React.Component {
           ),
         ]),
       ]),
-      this.createElement(Route, {
+      MiniReact.createElement(Route, {
+        currentUri: this.state.currentUri,
+        uri: "/",
+        component: Home,
+      }),
+      MiniReact.createElement(Route, {
         currentUri: this.state.currentUri,
         uri: "/meteo",
         component: Home,
       }),
-      this.createElement(Route, {
+      MiniReact.createElement(Route, {
         currentUri: this.state.currentUri,
         uri: "/commentaire",
         component: Comment,

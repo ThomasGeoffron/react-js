@@ -1,4 +1,4 @@
-import { MiniReact } from "../MiniReact";
+import { MiniReact } from "../MiniReact.js";
 
 export class Route extends MiniReact.Component {
   constructor(props) {
