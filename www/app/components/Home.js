@@ -1,5 +1,6 @@
 import { MiniReact } from "../MiniReact.js";
 import { Cities } from "./Cities.js";
+import { link } from "./Link.js";
 
 export class Home extends MiniReact.Component {
   constructor(props) {
@@ -37,6 +38,8 @@ export class Home extends MiniReact.Component {
 
   render() {
     return MiniReact.createElement("div", null, [
+      link("/meteo", "Météo"),
+      link("/commentaire", "Commentaires"),
       MiniReact.createElement("h1", null, ["Bienvenue sur M&T&O !"]),
       MiniReact.createElement(
         "p",
